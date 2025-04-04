@@ -1,0 +1,209 @@
+module maquina_cafe(
+    input clock,
+    input reset,
+    input [1:0] tipo_cafe,
+    input [1:0] tamano,
+    input [3:0] azucar,
+    output reg [15:0] precio_real
+
+
+);
+
+reg [1:0] estado_actual, next_state;
+reg [6:0] count;                // hasta 70 → 7 bits es suficiente
+reg reset_interno;
+reg [15:0] precio;
+
+// Señales auxiliares (si las usás como salidas para control)
+reg hacer_negro, hacer_cappuccino, hacer_con_leche, hacer_expresso;
+reg pequeño, mediano, grande;
+reg [2:0] nivel_azucar;
+
+
+// La logica combinacional calcula el próximo estado, la logica secuencial lo actualiza los registros 
+// Logica secuencial
+always @(posedge clock) begin       // Correr siempre que haya un flanco positivo de reloj
+      if (reset || reset_interno) begin              // Cuando se active el reset  
+        estado_actual <= INICIO;
+        precio_real   <= 0;          // Vuelve al estado inicial
+        count         <= 0;
+        reset_interno <= 0;
+        end else begin
+        estado_actual <= next_state; // Se pasa al estado sigueinte
+        end
+      else if(estado_actual == PRECIO) begin           
+        precio_real <= precio;      // Despliega el precio del café
+        count <= count + 1 
+        if(count == 70) begin
+            reset_interno <=1;           
+        end else if(PAGO_RECIBIDO) begin
+                next_state <= PREPARACION_CAFE;
+        end
+
+
+      end 
+    end
+
+
+// Logica combinacional
+// Se ejecuata cada vez que alguna de estas señales cambia
+always @(*) beginS
+if(estado_actual == INICIO) begin
+    case (tipo_cafe)S
+        
+        2'b00: begin
+            // Café negro
+            hacer_negro = 1;
+            hacer_cappuccino = 0;
+            hacer_con_leche = 0;
+            hacer_expresso = 0;
+        end
+        2'b01: begin
+            // Cappuccino
+            hacer_negro = 0;
+            hacer_cappuccino = 1;
+            hacer_con_leche = 0;
+            hacer_expresso = 0;
+        end
+        2'b10: begin
+            // Con leche
+            hacer_negro = 0;
+            hacer_cappuccino = 0;
+            hacer_con_leche = 1;
+            hacer_expresso = 0;
+        end
+        2'b11: begin
+            // Expresso
+            hacer_negro = 0;
+            hacer_cappuccino = 0;
+            hacer_con_leche = 0;
+            hacer_expresso = 1;
+        end
+    endcase
+
+    case (tamano)
+        2'b00: begin
+            // Pequeño
+            pequeño = 1; 
+            mediano = 0;
+            grande =  0;
+        end
+
+        2'b01: begin
+            // Mediano
+            pequeño = 0; 
+            mediano = 1;
+            grande =  0;
+        end
+
+        2'b10: begin
+            // Gramde
+            pequeño = 0; 
+            mediano = 0;
+            grande =  1;
+        end
+    endcase
+
+    case (azucar) // El azucar se puede elegir de 0 a 5
+        4'b0000: begin
+            // Nivel
+            nivel_azucar = 0;
+        end
+
+            4'b0001: begin
+            // Nivel
+            nivel_azucar = 1;
+        end
+
+            4'b0010: begin
+            // Nivel
+            nivel_azucar = 2;
+        end
+
+            4'b0011: begin
+            // Nivel
+            nivel_azucar = 3;
+        end
+
+            4'b0100: begin
+            // Nivel
+            nivel_azucar = 4;
+        end
+
+            4'b0101: begin
+            // Nivel
+            nivel_azucar = 5;
+        end
+            
+
+    endcase
+    case({tipo_cafe, tamano}) // Suma las dos entrdas
+
+        // El cafe es negro
+        4'b0000: begin                 // El cafe es negro y pequeno
+        precio = 16'b0000000111110100;  // Tiene un precio 500 colones
+        next_state <= PRECIO;
+        end
+
+        4'b0001: begin                 // El cafe es negro y mediano
+        precio = 16'b00000011111010000;  // Tiene un precio 1000 colones
+        next_state <= PRECIO;
+        end
+
+        4'b0010: begin                 // El cafe es negro y grande
+        precio = 16'b0000010111011100;  // Tiene un precio 1500 colones
+        next_state <= PRECIO;
+        end
+
+        // El cafe es con leche
+        4'b0100: begin                 // El cafe es con leche y pequeno
+        precio = 16'b0000001011101110;  // Tiene un precio 750 colones
+        next_state <= PRECIO;
+        end
+
+        4'b0101: begin                 // El cafe es con leche y mediano
+        precio = 16'b0000010011100010;  // Tiene un precio 1250 colones
+        next_state <= PRECIO;
+        end
+
+        4'b0110: begin                 // El cafe es con leche y grande
+        precio = 16'b0000011011010110;  // Tiene un precio 1750 colones
+        next_state <= PRECIO;
+        end
+
+        // El cafe es espresso
+        4'b1000: begin                 // El cafe es con espresoo y pequeno
+        precio = 16'b0000001011101110;  // Tiene un precio 1000 colones
+        next_state <= PRECIO;
+        end
+
+        4'b1001: begin                 // El cafe es con espresso y mediano
+        precio = 16'b0000010111011100;  // Tiene un precio 1500 colones
+        next_state <= PRECIO;
+        end
+
+        4'b1010: begin                 // El cafe es con espresso y grande
+        precio = 16'b0000011111010000;  // Tiene un precio 2000 colones
+        next_state <= PRECIO;
+        end
+        // El cafe es capuccino
+        4'b1100: begin                 // El cafe es con capuccino y pequeno
+        precio = 16'b0000010011100010;  // Tiene un precio 1250 colones
+        next_state <= PRECIO;
+        end
+
+        4'b1001: begin                 // El cafe es con espresso y mediano
+        precio = 16'b0000011011010110;  // Tiene un precio 1750 colones
+        next_state <= PRECIO;
+        end
+
+        4'b1010: begin                 // El cafe es con espresso y grande
+        precio = 16'b0000100111000100;  // Tiene un precio 2500 colones
+        next_state <= PRECIO;
+        end    
+
+        default: next_state <= INICIO;     // Se trata como un binario
+    endcase
+end
+
+end
