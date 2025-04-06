@@ -4,7 +4,7 @@
 module tarea_1_tb;
 
 wire clock, reset, PAGO_RECIBIDO;
-wire [1:0] tipo_cafe, tamano;
+wire [1:0] tipo_cafe, entrada_tamano;
 wire [3:0] azucar;
 
 wire [15:0] precio_real;
@@ -25,7 +25,7 @@ maquina_cafe UO(
   .reset(reset),
   .PAGO_RECIBIDO(PAGO_RECIBIDO),
   .tipo_cafe(tipo_cafe),
-  .tamano(tamano),
+  .entrada_tamano(entrada_tamano),
   .azucar(azucar),
   .precio_real(precio_real),
   .nivel_azucar(nivel_azucar),
@@ -40,7 +40,7 @@ probador PO(
   .reset(reset),
   .PAGO_RECIBIDO(PAGO_RECIBIDO),
   .tipo_cafe(tipo_cafe),
-  .tamano(tamano),
+  .entrada_tamano(entrada_tamano),
   .azucar(azucar),
   .precio_real(precio_real),
   .nivel_azucar(nivel_azucar),
