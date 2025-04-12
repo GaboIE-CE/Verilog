@@ -1,0 +1,264 @@
+$date
+	Sat Apr 12 14:16:11 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tarea_2_tb $end
+$var wire 16 ! salida_precio [15:0] $end
+$var wire 1 " salida_leche $end
+$var wire 1 # salida_espuma $end
+$var wire 1 $ salida_concentracion $end
+$var wire 4 % salida_azucar [3:0] $end
+$var wire 1 & reset $end
+$var wire 3 ' entrada_tamano [2:0] $end
+$var wire 3 ( entrada_cafe [2:0] $end
+$var wire 4 ) entrada_azucar [3:0] $end
+$var wire 1 * clock $end
+$var wire 1 + PAGO_RECIBIDO $end
+$scope module PO $end
+$var wire 16 , salida_precio [15:0] $end
+$var wire 1 " salida_leche $end
+$var wire 1 # salida_espuma $end
+$var wire 1 $ salida_concentracion $end
+$var wire 4 - salida_azucar [3:0] $end
+$var reg 1 + PAGO_RECIBIDO $end
+$var reg 1 * clock $end
+$var reg 4 . entrada_azucar [3:0] $end
+$var reg 3 / entrada_cafe [2:0] $end
+$var reg 3 0 entrada_tamano [2:0] $end
+$var reg 1 & reset $end
+$upscope $end
+$scope module UO $end
+$var wire 1 + PAGO_RECIBIDO $end
+$var wire 1 * clock $end
+$var wire 4 1 entrada_azucar [3:0] $end
+$var wire 3 2 entrada_cafe [2:0] $end
+$var wire 3 3 entrada_tamano [2:0] $end
+$var wire 1 & reset $end
+$var parameter 2 4 IDLE $end
+$var parameter 2 5 INICIO $end
+$var parameter 2 6 PRECIO $end
+$var parameter 2 7 PREPARACION_CAFE $end
+$var reg 3 8 ciclos_preparacion [2:0] $end
+$var reg 7 9 count [6:0] $end
+$var reg 2 : estado_actual [1:0] $end
+$var reg 2 ; exit_counter [1:0] $end
+$var reg 2 < next_state [1:0] $end
+$var reg 1 = reset_interno $end
+$var reg 4 > salida_azucar [3:0] $end
+$var reg 1 $ salida_concentracion $end
+$var reg 1 # salida_espuma $end
+$var reg 1 " salida_leche $end
+$var reg 16 ? salida_precio [15:0] $end
+$var reg 4 @ variable_azucar [3:0] $end
+$var reg 3 A variable_cafe [2:0] $end
+$var reg 3 B variable_tamano [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10 7
+b1 6
+b0 5
+b11 4
+$end
+#0
+$dumpvars
+b0 B
+b0 A
+b0 @
+b0 ?
+b0 >
+0=
+bx <
+bx ;
+bx :
+bx 9
+bx 8
+b0 3
+b0 2
+b0 1
+b0 0
+b0 /
+b0 .
+b0 -
+b0 ,
+0+
+0*
+b0 )
+b0 (
+b0 '
+1&
+b0 %
+0$
+0#
+0"
+b0 !
+$end
+#5
+1=
+b0 8
+b0 ;
+b0 9
+b0 :
+b0 <
+1*
+#10
+b1 <
+b100011001010 !
+b100011001010 ,
+b100011001010 ?
+b11 B
+b100 A
+b11 @
+0=
+0*
+b11 )
+b11 .
+b11 1
+b11 '
+b11 0
+b11 3
+b100 (
+b100 /
+b100 2
+0&
+#15
+b0 !
+b0 ,
+b0 ?
+b1 :
+1*
+#20
+b10 <
+0*
+1+
+#25
+b11 %
+b11 -
+b11 >
+1#
+1$
+1"
+b1 9
+b10 :
+1*
+#30
+b11 %
+b11 -
+b11 >
+1#
+1$
+1"
+0*
+0+
+#35
+b11 %
+b11 -
+b11 >
+1#
+1$
+1"
+b1 ;
+1*
+#40
+0*
+#45
+b11 %
+b11 -
+b11 >
+1#
+1$
+1"
+b10 ;
+1*
+#50
+0*
+#55
+1=
+b0 %
+b0 -
+b0 >
+0#
+0$
+0"
+b11 ;
+1*
+#60
+0*
+#65
+0=
+b11 :
+b11 <
+1*
+#70
+0*
+#75
+1*
+#80
+0*
+#85
+1*
+#90
+0*
+#95
+1*
+#100
+0*
+#105
+1*
+#110
+0*
+#115
+1*
+#120
+0*
+#125
+1*
+#130
+0*
+#135
+1*
+#140
+0*
+#145
+1*
+#150
+0*
+#155
+1*
+#160
+0*
+#165
+1*
+#170
+0*
+#175
+1*
+#180
+0*
+#185
+1*
+#190
+0*
+#195
+1*
+#200
+0*
+#205
+1*
+#210
+0*
+#215
+1*
+#220
+0*
+#225
+1*
+#230
+0*
