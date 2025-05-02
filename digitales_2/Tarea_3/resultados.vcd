@@ -1,0 +1,124 @@
+$date
+	Fri May  2 00:16:24 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tarea_3_tb $end
+$var wire 1 ! reset $end
+$var wire 1 " clock $end
+$var wire 1 # TARJETA_RECIBIDA $end
+$var wire 1 $ PIN_INCORRECTO $end
+$var wire 16 % PIN_CORRECTO [15:0] $end
+$var wire 1 & MONTO_STB $end
+$var wire 1 ' FONDOS_INSUFICIENTES $end
+$var wire 1 ( ENTREGAR_DINERO $end
+$var wire 1 ) DIGITO_STB $end
+$var wire 4 * DIGITO [3:0] $end
+$var wire 1 + BLOQUEO $end
+$var wire 1 , BALANCE_STB $end
+$var wire 1 - BALANCE_INICIAL $end
+$var wire 1 . BALANCE_ACTUALIZADO $end
+$var wire 1 / ADVERTENCIA $end
+$scope module PO $end
+$var wire 1 $ PIN_INCORRECTO $end
+$var wire 1 ' FONDOS_INSUFICIENTES $end
+$var wire 1 ( ENTREGAR_DINERO $end
+$var wire 1 + BLOQUEO $end
+$var wire 1 , BALANCE_STB $end
+$var wire 1 . BALANCE_ACTUALIZADO $end
+$var wire 1 / ADVERTENCIA $end
+$var reg 1 - BALANCE_INICIAL $end
+$var reg 4 0 DIGITO [3:0] $end
+$var reg 1 ) DIGITO_STB $end
+$var reg 1 & MONTO_STB $end
+$var reg 16 1 PIN_CORRECTO [15:0] $end
+$var reg 1 # TARJETA_RECIBIDA $end
+$var reg 1 " clock $end
+$var reg 1 ! reset $end
+$upscope $end
+$scope module UO $end
+$var wire 1 - BALANCE_INICIAL $end
+$var wire 4 2 DIGITO [3:0] $end
+$var wire 1 ) DIGITO_STB $end
+$var wire 1 & MONTO_STB $end
+$var wire 16 3 PIN_CORRECTO [15:0] $end
+$var wire 1 # TARJETA_RECIBIDA $end
+$var wire 1 " clock $end
+$var wire 1 ! reset $end
+$var parameter 2 4 IDLE $end
+$var parameter 2 5 INICIO $end
+$var reg 1 / ADVERTENCIA $end
+$var reg 1 . BALANCE_ACTUALIZADO $end
+$var reg 1 , BALANCE_STB $end
+$var reg 1 + BLOQUEO $end
+$var reg 1 ( ENTREGAR_DINERO $end
+$var reg 1 ' FONDOS_INSUFICIENTES $end
+$var reg 1 $ PIN_INCORRECTO $end
+$var reg 4 6 contador_DIGITO [3:0] $end
+$var reg 4 7 contador_DIGITO_next [3:0] $end
+$var reg 2 8 estado_actual [1:0] $end
+$var reg 2 9 estado_siguiente [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1 5
+b0 4
+$end
+#0
+$dumpvars
+b1 9
+bx 8
+b0 7
+b0 6
+b10000010011000 3
+bx 2
+b10000010011000 1
+bx 0
+x/
+x.
+x-
+x,
+x+
+bx *
+0)
+x(
+x'
+x&
+b10000010011000 %
+x$
+1#
+0"
+x!
+$end
+#5
+b1 8
+1"
+#10
+0"
+b10 *
+b10 0
+b10 2
+#15
+1"
+#20
+0"
+1)
+#25
+1"
+#30
+0"
+0)
+#35
+1"
+#40
+0"
+#45
+1"
+#50
+0"
