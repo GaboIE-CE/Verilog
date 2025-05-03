@@ -1,5 +1,5 @@
 $date
-	Fri May  2 00:16:24 2025
+	Sat May  3 01:21:40 2025
 $end
 $version
 	Icarus Verilog
@@ -10,115 +10,252 @@ $end
 $scope module tarea_3_tb $end
 $var wire 1 ! reset $end
 $var wire 1 " clock $end
-$var wire 1 # TARJETA_RECIBIDA $end
-$var wire 1 $ PIN_INCORRECTO $end
-$var wire 16 % PIN_CORRECTO [15:0] $end
-$var wire 1 & MONTO_STB $end
-$var wire 1 ' FONDOS_INSUFICIENTES $end
-$var wire 1 ( ENTREGAR_DINERO $end
-$var wire 1 ) DIGITO_STB $end
-$var wire 4 * DIGITO [3:0] $end
-$var wire 1 + BLOQUEO $end
-$var wire 1 , BALANCE_STB $end
-$var wire 1 - BALANCE_INICIAL $end
-$var wire 1 . BALANCE_ACTUALIZADO $end
-$var wire 1 / ADVERTENCIA $end
+$var wire 1 # TIPO_TRANS $end
+$var wire 1 $ TARJETA_RECIBIDA $end
+$var wire 1 % PIN_INCORRECTO $end
+$var wire 16 & PIN_CORRECTO [15:0] $end
+$var wire 1 ' MONTO_STB $end
+$var wire 32 ( MONTO [31:0] $end
+$var wire 1 ) FONDOS_INSUFICIENTES $end
+$var wire 1 * ENTREGAR_DINERO $end
+$var wire 1 + DIGITO_STB $end
+$var wire 4 , DIGITO [3:0] $end
+$var wire 1 - BLOQUEO $end
+$var wire 1 . BALANCE_STB $end
+$var wire 64 / BALANCE_INICIAL [63:0] $end
+$var wire 64 0 BALANCE_ACTUALIZADO [63:0] $end
+$var wire 1 1 ADVERTENCIA $end
 $scope module PO $end
-$var wire 1 $ PIN_INCORRECTO $end
-$var wire 1 ' FONDOS_INSUFICIENTES $end
-$var wire 1 ( ENTREGAR_DINERO $end
-$var wire 1 + BLOQUEO $end
-$var wire 1 , BALANCE_STB $end
-$var wire 1 . BALANCE_ACTUALIZADO $end
-$var wire 1 / ADVERTENCIA $end
-$var reg 1 - BALANCE_INICIAL $end
-$var reg 4 0 DIGITO [3:0] $end
-$var reg 1 ) DIGITO_STB $end
-$var reg 1 & MONTO_STB $end
-$var reg 16 1 PIN_CORRECTO [15:0] $end
-$var reg 1 # TARJETA_RECIBIDA $end
+$var wire 1 % PIN_INCORRECTO $end
+$var wire 1 ) FONDOS_INSUFICIENTES $end
+$var wire 1 * ENTREGAR_DINERO $end
+$var wire 1 - BLOQUEO $end
+$var wire 1 . BALANCE_STB $end
+$var wire 64 2 BALANCE_ACTUALIZADO [63:0] $end
+$var wire 1 1 ADVERTENCIA $end
+$var reg 64 3 BALANCE_INICIAL [63:0] $end
+$var reg 4 4 DIGITO [3:0] $end
+$var reg 1 + DIGITO_STB $end
+$var reg 32 5 MONTO [31:0] $end
+$var reg 1 ' MONTO_STB $end
+$var reg 16 6 PIN_CORRECTO [15:0] $end
+$var reg 1 $ TARJETA_RECIBIDA $end
+$var reg 1 # TIPO_TRANS $end
 $var reg 1 " clock $end
 $var reg 1 ! reset $end
 $upscope $end
 $scope module UO $end
-$var wire 1 - BALANCE_INICIAL $end
-$var wire 4 2 DIGITO [3:0] $end
-$var wire 1 ) DIGITO_STB $end
-$var wire 1 & MONTO_STB $end
-$var wire 16 3 PIN_CORRECTO [15:0] $end
-$var wire 1 # TARJETA_RECIBIDA $end
+$var wire 64 7 BALANCE_INICIAL [63:0] $end
+$var wire 4 8 DIGITO [3:0] $end
+$var wire 1 + DIGITO_STB $end
+$var wire 32 9 MONTO [31:0] $end
+$var wire 1 ' MONTO_STB $end
+$var wire 16 : PIN_CORRECTO [15:0] $end
+$var wire 1 $ TARJETA_RECIBIDA $end
+$var wire 1 # TIPO_TRANS $end
 $var wire 1 " clock $end
 $var wire 1 ! reset $end
-$var parameter 2 4 IDLE $end
-$var parameter 2 5 INICIO $end
-$var reg 1 / ADVERTENCIA $end
-$var reg 1 . BALANCE_ACTUALIZADO $end
-$var reg 1 , BALANCE_STB $end
-$var reg 1 + BLOQUEO $end
-$var reg 1 ( ENTREGAR_DINERO $end
-$var reg 1 ' FONDOS_INSUFICIENTES $end
-$var reg 1 $ PIN_INCORRECTO $end
-$var reg 4 6 contador_DIGITO [3:0] $end
-$var reg 4 7 contador_DIGITO_next [3:0] $end
-$var reg 2 8 estado_actual [1:0] $end
-$var reg 2 9 estado_siguiente [1:0] $end
+$var parameter 2 ; DINERO $end
+$var parameter 2 < IDLE $end
+$var parameter 2 = INICIO $end
+$var parameter 2 > TRANSACCION $end
+$var reg 1 1 ADVERTENCIA $end
+$var reg 64 ? BALANCE_ACTUALIZADO [63:0] $end
+$var reg 64 @ BALANCE_ACTUALIZADO_siguiente [63:0] $end
+$var reg 1 . BALANCE_STB $end
+$var reg 1 A BALANCE_STB_siguiente $end
+$var reg 1 - BLOQUEO $end
+$var reg 1 B DIGITO_STB_ANTERIOR $end
+$var reg 1 * ENTREGAR_DINERO $end
+$var reg 1 ) FONDOS_INSUFICIENTES $end
+$var reg 1 % PIN_INCORRECTO $end
+$var reg 1 C bandera_fondos_insuficientes $end
+$var reg 4 D contador_DIGITO [3:0] $end
+$var reg 4 E contador_DIGITO_next [3:0] $end
+$var reg 10 F contador_balance_stb [9:0] $end
+$var reg 10 G contador_balance_stb_siguiente [9:0] $end
+$var reg 2 H estado_actual [1:0] $end
+$var reg 2 I estado_siguiente [1:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
 $dumpall
-b1 5
-b0 4
+b10 >
+b1 =
+b0 <
+b11 ;
 $end
 #0
 $dumpvars
-b1 9
+b1 I
+b0 H
+b0 G
+b0 F
+b0 E
+b0 D
+0C
+0B
+0A
+b0 @
+bx ?
+b1000001101000100 :
+bx 9
 bx 8
-b0 7
-b0 6
-b10000010011000 3
+b1100100 7
+b1000001101000100 6
+bx 5
+bx 4
+b1100100 3
 bx 2
-b10000010011000 1
+x1
 bx 0
-x/
+b1100100 /
 x.
 x-
-x,
-x+
-bx *
-0)
-x(
-x'
-x&
-b10000010011000 %
-x$
+bx ,
+0+
+x*
+x)
+bx (
+0'
+b1000001101000100 &
+x%
+1$
 1#
 0"
 x!
 $end
 #5
-b1 8
+0.
+0)
+b0 0
+b0 2
+b0 ?
+b1 H
 1"
 #10
+b1 E
 0"
-b10 *
-b10 0
-b10 2
+1+
+b1000 ,
+b1000 4
+b1000 8
 #15
+1B
+b1 D
 1"
 #20
 0"
-1)
+0+
 #25
+0B
 1"
 #30
+b10 E
 0"
-0)
+1+
+b11 ,
+b11 4
+b11 8
 #35
+1B
+b10 D
 1"
 #40
 0"
+0+
 #45
+0B
 1"
 #50
+b11 E
+0"
+1+
+b100 ,
+b100 4
+b100 8
+#55
+1B
+b11 D
+1"
+#60
+0"
+0+
+#65
+0B
+1"
+#70
+b100 E
+0"
+1+
+#75
+b10 I
+1B
+b100 D
+1"
+#80
+b10 I
+0"
+1'
+b110010 (
+b110010 5
+b110010 9
+0+
+#85
+b11 I
+1A
+b110010 @
+0B
+b10 H
+1"
+#90
+0"
+0'
+#95
+0A
+1.
+b110010 0
+b110010 2
+b110010 ?
+b11 H
+1"
+#100
+0"
+#105
+0.
+1"
+#110
+0"
+#115
+1"
+#120
+0"
+#125
+1"
+#130
+0"
+#135
+1"
+#140
+0"
+#145
+1"
+#150
+0"
+#155
+1"
+#160
+0"
+#165
+1"
+#170
+0"
+#175
+1"
+#180
+0"
+#185
+1"
+#190
 0"
