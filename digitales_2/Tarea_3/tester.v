@@ -33,18 +33,93 @@ end
 
 initial begin
     clock = 0;
+    reset = 0;
+
     MONTO_STB = 0;
+    
 
 
     PIN_CORRECTO = 16'b1000_0011_0100_0100; // = 8 3 4 4
-    TIPO_TRANS   = 1;
+    TIPO_TRANS   = 0;
     TARJETA_RECIBIDA = 1;
     BALANCE_INICIAL  = 64'b0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0110_0100;
+    #10;
+    TARJETA_RECIBIDA = 0;
     
 
 
     DIGITO_STB = 0;
     #10;
+ // Codigo incorrecto   
+    DIGITO = 4'b1000;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;    
+    #10
+    DIGITO = 4'b0001;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;
+    #10
+    DIGITO = 4'b0100;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;
+    #10
+    DIGITO = 4'b0100;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;
+    #10
+
+ // Codigo incorrecto
+    DIGITO = 4'b1000;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;    
+    #10
+    DIGITO = 4'b0011;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;
+    #10
+    DIGITO = 4'b0100;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;
+    #10
+    DIGITO = 4'b0110;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;
+    #10;
+
+ // Codigo incorrecto
+    DIGITO = 4'b1100;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;    
+    #10
+    DIGITO = 4'b0011;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;
+    #10
+    DIGITO = 4'b0100;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;
+    #10
+    DIGITO = 4'b0100;
+    DIGITO_STB = 1;
+    #10;
+    DIGITO_STB = 0;
+    #10
+    TARJETA_RECIBIDA = 1;
+    #10
+    TARJETA_RECIBIDA = 0;
+
+// Codigo correcto
     DIGITO = 4'b1000;
     DIGITO_STB = 1;
     #10;
@@ -63,7 +138,9 @@ initial begin
     DIGITO = 4'b0100;
     DIGITO_STB = 1;
     #10;
-    DIGITO_STB = 0;   
+    DIGITO_STB = 0;    
+
+// Monto           
     MONTO = 32'b0000_0000_0000_0000_0000_0000_0011_0010;
     MONTO_STB = 1;
     #10
